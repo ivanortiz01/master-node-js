@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/css/estilos.css")
+        title Tienda
+    body
+        h1 Tienda
+
+        ul
+            each camiseta in camisetas
+                div.item
+                    h2 Camiseta #{camiseta.color}
+                    img(src=camiseta.imagen, alt=camiseta.color)
+                    a.comprar(href="/tienda/comprar/" + camiseta.color) Comprar
+

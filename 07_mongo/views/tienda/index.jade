@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+    h1 
+        a(href="/") #{titulo}
+        
+    each camiseta in camisetas
+        div.item
+            h2 Camiseta #{camiseta.color}
+            img(src=camiseta.imagen, alt=camiseta.color)
+            a.comprar(href="/tienda/comprar/" + camiseta.color) Comprar
