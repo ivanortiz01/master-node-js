@@ -17,4 +17,23 @@ router.get('/', function(req, res, next) {
     });
 });
 
+router.get("/agregar", function(req, res, next) {
+    res.render("tienda/agregar", {
+        titulo: "Tienda de Camisetas",
+    });
+});
+
+router.post("/agregar", function(req, res, next) {
+    var newObject = new  Camisetas({
+        color: req.body.color,
+        precio: req.body.precio,
+        descripcion: req.body.descripcion,
+        imagen: req.body.imagen
+    });
+
+    newObject.save();
+
+    res.redirect("/tienda");
+});
+
 module.exports = router;

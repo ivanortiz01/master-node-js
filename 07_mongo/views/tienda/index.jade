@@ -3,6 +3,9 @@ extends ../layout
 block content
     h1 
         a(href="/") #{titulo}
+
+        div.agregar
+            a(href="/tienda/agregar") Agregar
         
     each camiseta in camisetas
         div.item

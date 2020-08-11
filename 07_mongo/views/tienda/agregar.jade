@@ -1,0 +1,29 @@
+extends ../layout
+
+block content
+    h1 
+        a(href="/") #{titulo}
+
+        div.agregar
+            a(href="/tienda") Tienda
+        
+    div.contenedor
+        form(name="agregarItem", action="/tienda/agregar", method="post")
+            div
+                label Color
+                input(type="text", name="color")
+
+            div
+                label Imagen
+                input(type="text", name="imagen")
+
+            div
+                label Precio
+                input(type="text", name="precio")
+
+            div
+                label Descripción
+                input(type="text", name="descripcion")
+
+            div
+                input(type="submit", value="Guardar")

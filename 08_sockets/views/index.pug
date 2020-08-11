@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  include chat.pug
+
+  script(type="text/javascript", src="http://cdn.socket.io/socket.io-1.2.0.js")
+  script(type="text/javascript", src="http://code.jquery.com/jquery-1.11.1.js")
+
+  script.
+    var socket = io();
+
+    $('form').submit(function() {
+      socket.emit("chat message", $("#m").val());
+      $("#m").val("");
+      return false;
+    });
+
+    socket.on('chat message', function(msg) {
+      $("#message").prepend('<li>').text(msg);
+    });
+
+  
